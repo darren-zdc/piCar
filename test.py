@@ -56,8 +56,7 @@ def drive(cfg):
 
 
 if __name__ == '__main__':
-    args = docopt(__doc__)
-    cfg = car.load_config(config_path='cfg_basic.py')
-
-    if args['drive']:
-        drive(cfg)
+#    args = docopt(__doc__)
+    cfg = car.load_config(config_path='/home/dicong/piCar/cfg_basic.py')
+    drive(cfg)
+#	drive(cfg)
