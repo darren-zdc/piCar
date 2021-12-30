@@ -21,6 +21,9 @@ class PCA9685:
         self.pwm_scale = frequency / self.default_freq
 
         from adafruit_pca9685 import PCA9685
+        from board import SCL, SDA
+        import busio
+        i2c = busio.I2C(SCL, SDA)
         # import Adafruit_PCA9685
         # Initialise the PCA9685 using the default address (0x40).
         # if busnum is not None:
@@ -29,7 +32,7 @@ class PCA9685:
         def get_bus():
             return busnum
 
-        self.pwm = PCA9685(address=address)
+        self.pwm = PCA9685(i2c, address=address)
         self.pwm.frequency = frequency
         self.pwm.i2c_device = (get_bus, address)
         self.channel = channel
